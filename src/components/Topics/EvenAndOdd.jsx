@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 export default class EvenAndOdd extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       evenArray: [],
       oddArray: [],
@@ -10,17 +10,29 @@ export default class EvenAndOdd extends Component {
     };
   }
   render() {
+    const evalNum = () => {
+      let numberInput = this.state.userInput.split("");
+      numberInput.map((num) =>
+        num % 2 === 0
+          ? this.state.evenArray.push(num)
+          : this.state.oddArray.push(num)
+      );
+      this.setState({ userInput: " " });
+      console.log(this.state.userInput);
+      this.setState(this.state);
+    };
     return (
       <div className="puzzleBox evenAndOddPB">
         <h4>Evens and Odds</h4>
         <input
+          type="text"
           className="inputLine"
           onChange={(e) => this.setState({ userInput: e.target.value })}
         />
-        <h2>{this.state.userInput}</h2>
-        <button className="confirmationButton"></button>
-        <span className="resultsBox"></span>
-        <span className="resultsBox"></span>
+
+        <button className="confirmationButton" onClick={evalNum}></button>
+        <span className="resultsBox">{this.state.evenArray}</span>
+        <span className="resultsBox">{this.state.oddArray}</span>
       </div>
     );
   }
