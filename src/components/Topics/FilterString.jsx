@@ -25,7 +25,7 @@ export default class FilterString extends Component {
     const filterStr = () => {
       let names = this.state.names;
       let filterWord = this.state.userInput;
-      names.map((el) => {
+      names.forEach((el) => {
         el.includes(filterWord)
           ? this.state.filteredArray.push(el)
           : console.log(`${filterWord} not found`);
