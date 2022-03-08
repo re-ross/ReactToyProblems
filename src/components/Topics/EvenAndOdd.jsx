@@ -26,7 +26,7 @@ export default class EvenAndOdd extends Component {
         <h4>Evens and Odds</h4>
         <input className="inputLine" onChange={this.handleChange}></input>
         <button className="confirmationButton" onClick={this.evalNum}>
-          Evaluate!
+          Evaluate: Even or Odd?
         </button>
         <span className="resultsBox">Evens: {this.state.evenArray}</span>
         <span className="resultsBox">Odds:{this.state.oddArray}</span>

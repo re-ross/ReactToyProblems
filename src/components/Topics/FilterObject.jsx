@@ -37,7 +37,7 @@ export default class FilterObject extends Component {
         </span>
         <input className="inputLine" type="text" onChange={this.handleChange} />
         <button className="confirmationButton" onClick={this.filterTerm}>
-          Filter by props
+          Filter by Property
         </button>
         <span className="resultsBox filterObjectRB">
           Filtered:

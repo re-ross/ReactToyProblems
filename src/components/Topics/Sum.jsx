@@ -9,24 +9,24 @@ export default class Sum extends Component {
       sum: null,
     };
   }
+  handleNum1 = (e) => {
+    this.setState({ number1: e.target.value });
+  };
+  handleNum2 = (e) => {
+    this.setState({ number2: e.target.value });
+  };
+  sum = () => {
+    this.setState({
+      sum: Number(this.state.number1) + Number(this.state.number2),
+    });
+  };
   render() {
-    const handleNum1 = (e) => {
-      this.setState({ number1: e.target.value });
-    };
-    const handleNum2 = (e) => {
-      this.setState({ number2: e.target.value });
-    };
-    const sum = () => {
-      this.setState({
-        sum: Number(this.state.number1) + Number(this.state.number2),
-      });
-    };
     return (
       <div className="puzzleBox sumPB">
         <h4>Sum</h4>
-        <input className="inputLine" type="number" onChange={handleNum1} />
-        <input className="inputLine" type="number" onChange={handleNum2} />
-        <button className="confirmationButton" onClick={sum}></button>
+        <input className="inputLine" type="number" onChange={this.handleNum1} />
+        <input className="inputLine" type="number" onChange={this.handleNum2} />
+        <button className="confirmationButton" onClick={this.sum}></button>
         <span className="resultsBox">Sum: {this.state.sum}</span>
       </div>
     );

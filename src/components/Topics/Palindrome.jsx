@@ -15,9 +15,9 @@ export default class Palindrome extends Component {
     let input = userInput.toLowerCase();
     let revInput = input.split("").reverse().join("");
     if (input === revInput) {
-      this.setState({ palindrome: true });
+      this.setState({ palindrome: "true" });
     } else {
-      this.setState({ palindrome: false });
+      this.setState({ palindrome: "false" });
     }
   };
   render() {

@@ -42,7 +42,7 @@ export default class FilterString extends Component {
           className="confirmationButton"
           onClick={() => this.filterStr(this.state.userInput)}
         >
-          Filter?
+          Filter by String
         </button>
         <span className="resultsBox filterStringRB">
           {JSON.stringify(this.state.filteredArray)}
