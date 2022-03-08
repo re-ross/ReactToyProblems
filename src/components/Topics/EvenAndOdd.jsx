@@ -1,37 +1,35 @@
 import React, { Component } from "react";
+
 export default class EvenAndOdd extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       evenArray: [],
       oddArray: [],
       userInput: "",
     };
   }
+  handleChange = (e) => {
+    this.setState({ userInput: e.target.value });
+  };
+  evalNum = () => {
+    let userInput = this.state.userInput.split("");
+    let evens = [];
+    let odds = [];
+    userInput.map((num) => (num % 2 === 0 ? evens.push(num) : odds.push(num)));
+    this.setState({ evenArray: evens, oddArray: odds });
+  };
+
   render() {
-    const handleChange = (e) => {
-      this.setState({ userInput: e.target.value });
-    };
-    const evalNum = () => {
-      let numberInput = this.state.userInput.split("");
-      numberInput.map((num) =>
-        num % 2 === 0
-          ? this.state.evenArray.push(num)
-          : this.state.oddArray.push(num)
-      );
-      this.setState({ userInput: " " });
-      this.setState(this.state);
-    };
     return (
       <div className="puzzleBox evenAndOddPB">
-        <h4>Even and Odd</h4>
-        <input type="text" className="inputLine" onChange={handleChange} />
-
-        <button className="confirmationButton" onClick={evalNum}>
-          Split Numbers
+        <h4>Evens and Odds</h4>
+        <input className="inputLine" onChange={this.handleChange}></input>
+        <button className="confirmationButton" onClick={this.evalNum}>
+          Evaluate!
         </button>
         <span className="resultsBox">Evens: {this.state.evenArray}</span>
-        <span className="resultsBox">Odds: {this.state.oddArray}</span>
+        <span className="resultsBox">Odds:{this.state.oddArray}</span>
       </div>
     );
   }
